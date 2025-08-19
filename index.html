@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Lembretes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📅 Sistema de Lembretes</h1>
+        <p>Organize suas tarefas com notificações automáticas</p>
+    </header>
+
+    <main>
+        <section class="calendar-section">
+            <div class="calendar-header">
+                <button id="prevMonth" class="nav-btn">‹</button>
+                <h2 id="currentMonth">Janeiro 2024</h2>
+                <button id="nextMonth" class="nav-btn">›</button>
+            </div>
+            
+            <div class="calendar-grid" id="calendar">
+                <div class="day-header">Dom</div>
+                <div class="day-header">Seg</div>
+                <div class="day-header">Ter</div>
+                <div class="day-header">Qua</div>
+                <div class="day-header">Qui</div>
+                <div class="day-header">Sex</div>
+                <div class="day-header">Sáb</div>
+            </div>
+        </section>
+
+        <section class="reminder-form">
+            <h3>➕ Adicionar Lembrete</h3>
+            <form id="reminderForm">
+                <div class="form-group">
+                    <label for="reminderDate">📅 Data:</label>
+                    <input type="date" id="reminderDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reminderTime">⏰ Hora:</label>
+                    <input type="time" id="reminderTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reminderTitle">📝 Título:</label>
+                    <input type="text" id="reminderTitle" placeholder="Ex: Reunião importante" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reminderDescription">📄 Descrição:</label>
+                    <textarea id="reminderDescription" placeholder="Detalhes do lembrete..."></textarea>
+                </div>
+                
+                <button type="submit" class="add-btn">✅ Adicionar Lembrete</button>
+            </form>
+        </section>
+
+        <section class="reminders-list">
+            <h3>📋 Meus Lembretes</h3>
+            <div id="remindersList" class="reminders-container">
+                <p class="no-reminders">Nenhum lembrete cadastrado ainda.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Notificação -->
+    <div id="notificationModal" class="notification-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">🔔 Lembrete</h3>
+                <button id="closeModal" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Descrição do lembrete</p>
+                <p id="modalDateTime">Data e hora</p>
+            </div>
+            <div class="modal-actions">
+                <button id="completeBtn" class="action-btn complete">✅ Concluir</button>
+                <button id="snoozeBtn" class="action-btn snooze">⏰ Lembrar em 45min</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
